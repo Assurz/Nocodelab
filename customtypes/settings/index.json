@@ -6,13 +6,12 @@
   "status": true,
   "json": {
     "Main": {
-      "siteTitle": {
-        "type": "StructuredText",
+      "siteLogo": {
+        "type": "Image",
         "config": {
-          "label": "Site Title",
-          "placeholder": "Title of the site",
-          "allowTargetBlank": false,
-          "single": "heading1"
+          "label": "siteLogo",
+          "constraint": {},
+          "thumbnails": []
         }
       }
     }
