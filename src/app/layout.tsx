@@ -6,7 +6,6 @@ import { PrismicText, PrismicImage } from "@prismicio/react";
 import { PrismicNextLink, PrismicPreview } from "@prismicio/next";
 
 import { createClient, repositoryName } from "@/prismicio";
-import { Bounded } from "@/components/Bounded";
 
 const inter = Inter({
   subsets: ["latin"],
