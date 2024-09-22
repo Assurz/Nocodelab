@@ -2,6 +2,7 @@ import {
   PrismicRichText as BasePrismicRichText,
   type PrismicRichTextProps,
   type JSXMapSerializer,
+  PrismicImage,
 } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
 
@@ -52,6 +53,9 @@ const defaultComponents: JSXMapSerializer = {
       {children}
     </PrismicNextLink>
   ),
+  // image: ({ }) => (
+  //   <PrismicImage />
+  // )
 };
 
 export function PrismicRichText({
