@@ -22,9 +22,9 @@ const Hero = ({ slice }: HeroProps) => {
 
   return (
     <section className="relative bg-white">
-      <div className="mx-auto w-full max-w-6xl py-[50px] mx-auto px-4 md:px-6 flex">
-        <div className="flex-[0.65] flex flex-col">
-          <div className="max-w-2xl pt-[30px] [&_.block-img>img]:h-[90px] [&_.block-img>img]:mb-2.5">
+      <div className="mx-auto w-full max-w-6xl py-[30px] lg:py-[50px] mx-auto px-4 md:px-6 flex flex-col gap-y-[50px] md:flex-row">
+        <div className="lg:flex-[0.65] flex flex-col">
+          <div className="max-w-xl lg:pt-[30px] [&_.block-img>img]:h-[90px] [&_.block-img>img]:mb-2.5">
             <PrismicRichText
               field={slice.primary.text}
               components={components}
@@ -33,13 +33,13 @@ const Hero = ({ slice }: HeroProps) => {
           {isFilled.link(slice.primary.buttonLink) && (
             <PrismicNextLink
               field={slice.primary.buttonLink}
-              className="self-start rounded bg-[#560707] mt-7 px-5 py-3 font-medium text-white"
+              className="self-start rounded bg-[#560707] mt-6 lg:mt-7 px-5 py-3 font-medium text-white"
             >
-              {slice.primary.buttonText || "Learn More"}
+              {slice.primary.buttonText || "Start learning"}
             </PrismicNextLink>
           )}
         </div>
-        <div className="relative flex-[0.35] w-[380px]">
+        <div className="relative lg:flex-[0.35] lg:w-[380px]">
           {isFilled.image(backgroundImage) && (
             <PrismicNextImage
               field={backgroundImage}

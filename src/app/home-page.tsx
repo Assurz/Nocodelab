@@ -37,7 +37,7 @@ export const HomePage = ({ data }: Props) => {
     return (
         <div className="max-w-6xl px-4 md:px-6 mx-auto w-full">
             <Heading as="h2" size="xl" className="mb-8" >All Lessons</Heading>
-            <div className="grid grid-cols-2 gap-y-[80px] mb-[60px]">
+            <div className="grid lg:grid-cols-2 gap-y-[80px] mb-[60px]">
                 {[...data].map((item) => (
                     <ModuleSection key={item.categoryUid} categoryName={item.categoryName} categoryUid={item.categoryUid} posts={item.posts} />
                 ))}
