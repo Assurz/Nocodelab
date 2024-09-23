@@ -17,8 +17,8 @@ const TextWithBanner = ({ slice }: TextWithBannerProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className="px-4 lg:px-0"
     >
-      <div className="max-w-6xl mx-auto h-[11rem] md:h-[15rem] rounded-[12px] bg-[#560707] flex text-center items-center justify-center">
-        <h1 className="text-white font-bold text-[24px] md:text-[32px]">
+      <div className="max-w-6xl mx-auto h-[11rem] md:h-[15rem] rounded-[0.75rem] bg-[#560707] flex text-center items-center justify-center">
+        <h1 className="text-white font-bold text-[1.5rem] md:text-[2rem]">
           {slice.primary.title}
         </h1>
       </div>
