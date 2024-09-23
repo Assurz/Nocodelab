@@ -34,11 +34,7 @@ export default async function Page({ params }: { params: Params }) {
   const client = createClient();
   const page = await client
     .getByUID("blogPost", params.uid, {
-      fetchLinks: [
-        'categories.name',
-        // 'blogPost.uid',
-        // 'previousPost.uid',
-      ]
+      fetchLinks: ['categories.name']
     })
     .catch(() => notFound());
 
