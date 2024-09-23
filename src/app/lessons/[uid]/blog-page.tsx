@@ -13,7 +13,6 @@ type Props = {
 
 export const BlogPage = ({ data }: Props) => {
     const { title, category, headerImage, content, icon, headerImageCaption, previousPost, nextPost } = data
-    console.log({ previousPost, })
     return (
         <div className="max-w-6xl mx-auto px-4 md:px-6">
             <div className="flex items-center gap-x-1 text-[16px] md:text-[18px] mb-[50px]">
