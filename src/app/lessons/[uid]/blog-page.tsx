@@ -1,5 +1,3 @@
-'use client'
-
 import { PrismicImage } from "@prismicio/react"
 import { BlogPostDocument, CategoriesDocument } from "../../../../prismicio-types"
 import { PrismicRichText } from "@/components/PrismicRichText"
