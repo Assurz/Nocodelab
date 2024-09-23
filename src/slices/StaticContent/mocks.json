@@ -1,0 +1,20 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aliqua velit officia consequat laborum et qui eiusmod excepteur esse. Aliqua aliquip eiusmod laborum qui. Labore culpa aliqua sint reprehenderit sint."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

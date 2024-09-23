@@ -345,6 +345,8 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TextWithBannerSlice
+  | StaticContentSlice
   | HeroSlice
   | QuoteSlice
   | TextSlice
@@ -779,6 +781,51 @@ type QuoteSliceVariation = QuoteSliceDefault;
 export type QuoteSlice = prismic.SharedSlice<"quote", QuoteSliceVariation>;
 
 /**
+ * Primary content in *StaticContent → Default → Primary*
+ */
+export interface StaticContentSliceDefaultPrimary {
+  /**
+   * Content field in *StaticContent → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: static_content.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for StaticContent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StaticContentSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<StaticContentSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *StaticContent*
+ */
+type StaticContentSliceVariation = StaticContentSliceDefault;
+
+/**
+ * StaticContent Shared Slice
+ *
+ * - **API ID**: `static_content`
+ * - **Description**: StaticContent
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StaticContentSlice = prismic.SharedSlice<
+  "static_content",
+  StaticContentSliceVariation
+>;
+
+/**
  * Primary content in *Text → Default → Primary*
  */
 export interface TextSliceDefaultPrimary {
@@ -847,6 +894,51 @@ type TextSliceVariation = TextSliceDefault | TextSliceTwoColumns;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type TextSlice = prismic.SharedSlice<"text", TextSliceVariation>;
+
+/**
+ * Primary content in *TextWithBanner → Default → Primary*
+ */
+export interface TextWithBannerSliceDefaultPrimary {
+  /**
+   * Title field in *TextWithBanner → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_banner.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for TextWithBanner Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextWithBannerSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TextWithBannerSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TextWithBanner*
+ */
+type TextWithBannerSliceVariation = TextWithBannerSliceDefault;
+
+/**
+ * TextWithBanner Shared Slice
+ *
+ * - **API ID**: `text_with_banner`
+ * - **Description**: TextWithBanner
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextWithBannerSlice = prismic.SharedSlice<
+  "text_with_banner",
+  TextWithBannerSliceVariation
+>;
 
 /**
  * Primary content in *TextWithImage → Default → Primary*
@@ -1009,12 +1101,20 @@ declare module "@prismicio/client" {
       QuoteSliceDefaultPrimary,
       QuoteSliceVariation,
       QuoteSliceDefault,
+      StaticContentSlice,
+      StaticContentSliceDefaultPrimary,
+      StaticContentSliceVariation,
+      StaticContentSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceTwoColumnsPrimary,
       TextSliceVariation,
       TextSliceDefault,
       TextSliceTwoColumns,
+      TextWithBannerSlice,
+      TextWithBannerSliceDefaultPrimary,
+      TextWithBannerSliceVariation,
+      TextWithBannerSliceDefault,
       TextWithImageSlice,
       TextWithImageSliceDefaultPrimary,
       TextWithImageSliceWithButtonPrimary,

@@ -7,6 +7,8 @@ export const components = {
   image: dynamic(() => import("./Image")),
   image_cards: dynamic(() => import("./ImageCards")),
   quote: dynamic(() => import("./Quote")),
+  static_content: dynamic(() => import("./StaticContent")),
   text: dynamic(() => import("./Text")),
+  text_with_banner: dynamic(() => import("./TextWithBanner")),
   text_with_image: dynamic(() => import("./TextWithImage")),
 };

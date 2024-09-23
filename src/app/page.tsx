@@ -36,6 +36,7 @@ export default async function Page() {
 
   const items = blogPosts.reduce((acc, curr) => {
     const currCategory = curr.data.category
+    if (!currCategory?.data?.name || !currCategory?.uid) return acc
     if (!acc[currCategory.uid]) {
       acc[currCategory.uid] = {
         categoryName: currCategory.data.name,

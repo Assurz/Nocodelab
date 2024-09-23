@@ -10,6 +10,7 @@ import footerLayout from '../public/footer-illustration.svg'
 
 import { createClient, repositoryName } from "@/prismicio";
 import { Heading } from "@/components/Heading";
+import Link from "next/link";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -43,15 +44,15 @@ async function Footer() {
   const settings = await client.getSingle("settings");
 
   return (
-    <footer className="bg-[#0D0D0D] min-h-[500px] py-8 px-6 text-white relative">
-      <div className="max-w-6xl mx-auto gap-x-[60px] border-t border-[#515151] pt-8 flex flex-col md:flex-row justify-between items-start relative z-2">
+    <footer className="bg-[#0D0D0D] min-h-[500px] py-8 px-4 md:px-6 text-white relative">
+      <div className="max-w-6xl mx-auto md:gap-x-[60px] border-t border-[#515151] pt-8 flex flex-col md:flex-row justify-between items-start relative z-2">
         <div className="mb-8 md:mb-0 flex-1">
           <Heading size="sm" as="h3" className="text-white mb-4">Join our mailing list</Heading>
-          <div className="flex flex-col md:flex-row gap-x-4">
+          <div className="flex flex-col md:flex-row gap-x-4 gap-y-2">
             <input
               type="email"
               placeholder="Email Address"
-              className="flex-1 max-w-[400px] bg-transparent border border-gray-700 rounded-md px-4 py-2 w-64"
+              className="flex-1 md:w-64 lg:max-w-[400px] bg-transparent border border-gray-700 rounded-md px-4 py-2"
             />
             <button className="bg-white text-black px-4 py-2 rounded-md font-semibold">
               Subscribe
@@ -66,21 +67,19 @@ async function Footer() {
         <div className="flex-1">
           <PrismicImage field={settings.data.siteLogoWhite} className="h-6 mb-10 md:mb-12" />
           <div className="flex flex-row gap-8">
-            <div className="min-w-[150px] md:min-w-[unset]">
-              <ul className="space-y-2">
-                <li>Lessons</li>
-                <li>Home</li>
-                <li>About</li>
-                <li>FAQs</li>
-              </ul>
+            <div className="min-w-[120px] md:min-w-[unset]">
+              <nav className="space-y-2 flex flex-col">
+                <Link href="/">Home</Link>
+                <Link href="/about">About</Link>
+                <Link href="/faqs">FAQs</Link>
+              </nav>
             </div>
-            <div className="min-w-[150px] md:min-w-[unset]">
-              <ul className="space-y-2">
-                <li>Privacy Policy</li>
-                <li>Accessibility</li>
-                <li>Cookie Policy</li>
-                <li>Site Map</li>
-              </ul>
+            <div className="min-w-[120px] md:min-w-[unset]">
+              <nav className="space-y-2 flex flex-col">
+                <Link href="/privacy-policy">Privacy Policy</Link>
+                <Link href="/accessibility">Accessibility</Link>
+                <Link href="/faqs">Site Map</Link>
+              </nav>
             </div>
           </div>
         </div>
@@ -88,7 +87,7 @@ async function Footer() {
 
       <div className="max-w-6xl mx-auto mt-8 pt-8 flex flex-col relative z-2">
         <p className="text-sm text-gray-400 mb-4 md:mb-6">
-          Made with ❤️ for Nigerians ©️ 2024 Nocodelab.
+          Made with ❤️ for Nigerians ©️ {new Date().getFullYear()} Nocodeinsight.
         </p>
         <hr className="border-gray-800 mb-10" />
         <div className="flex space-x-4">
@@ -113,7 +112,7 @@ async function Header() {
   const navigation = await client.getSingle("navigation");
 
   return (
-    <header className="bg-white py-8 px-6 ">
+    <header className="bg-white py-8 px-4 md:px-6 ">
       <div className="max-w-6xl mx-auto flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none">
         <PrismicNextLink
           href="/"
