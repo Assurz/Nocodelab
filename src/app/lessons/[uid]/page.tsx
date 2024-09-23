@@ -22,7 +22,7 @@ export async function generateMetadata({
 
   return {
     title: page.data.title,
-    description: page.data.meta_description,
+    description: page.data.summary,
     openGraph: {
       title: page.data.meta_title ?? undefined,
       images: [{ url: page.data.meta_image.url ?? "" }],

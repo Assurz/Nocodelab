@@ -1,6 +1,6 @@
 import { type Content, isFilled } from "@prismicio/client";
 import { PrismicNextLink, PrismicNextImage } from "@prismicio/next";
-import type { SliceComponentProps, JSXMapSerializer } from "@prismicio/react";
+import { type SliceComponentProps, type JSXMapSerializer, PrismicImage } from "@prismicio/react";
 
 import { Bounded } from "@/components/Bounded";
 import { Heading } from "@/components/Heading";
@@ -12,6 +12,7 @@ const components: JSXMapSerializer = {
       {children}
     </Heading>
   ),
+  
 };
 
 type HeroProps = SliceComponentProps<Content.HeroSlice>;
@@ -20,18 +21,10 @@ const Hero = ({ slice }: HeroProps) => {
   const backgroundImage = slice.primary.backgroundImage;
 
   return (
-    <section className="relative bg-slate-900 text-white">
-      {isFilled.image(backgroundImage) && (
-        <PrismicNextImage
-          field={backgroundImage}
-          alt=""
-          fill={true}
-          className="pointer-events-none select-none object-cover opacity-40"
-        />
-      )}
-      <Bounded yPadding="lg" className="relative">
-        <div className="grid justify-items-center gap-8">
-          <div className="max-w-2xl text-center">
+    <section className="relative bg-white">
+      <div className="mx-auto w-full max-w-6xl py-[50px] mx-auto px-4 md:px-6 flex">
+        <div className="flex-[0.65] flex flex-col">
+          <div className="max-w-2xl pt-[30px] [&_.block-img>img]:h-[90px] [&_.block-img>img]:mb-2.5">
             <PrismicRichText
               field={slice.primary.text}
               components={components}
@@ -40,13 +33,23 @@ const Hero = ({ slice }: HeroProps) => {
           {isFilled.link(slice.primary.buttonLink) && (
             <PrismicNextLink
               field={slice.primary.buttonLink}
-              className="rounded bg-white px-5 py-3 font-medium text-slate-800"
+              className="self-start rounded bg-[#560707] mt-7 px-5 py-3 font-medium text-white"
             >
               {slice.primary.buttonText || "Learn More"}
             </PrismicNextLink>
           )}
         </div>
-      </Bounded>
+        <div className="relative flex-[0.35] w-[380px]">
+          {isFilled.image(backgroundImage) && (
+            <PrismicNextImage
+              field={backgroundImage}
+              alt=""
+              // fill={true}
+              className="pointer-events-none select-none object-cover"
+            />
+          )}
+        </div>
+      </div>
     </section>
   );
 };

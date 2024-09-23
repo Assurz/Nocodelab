@@ -55,6 +55,17 @@ interface BlogPostDocumentData {
   headerImage: prismic.ImageField<never>;
 
   /**
+   * Header Image Caption field in *Blog Post*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogPost.headerImageCaption
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  headerImageCaption: prismic.RichTextField;
+
+  /**
    * Summary field in *Blog Post*
    *
    * - **Field Type**: Text
@@ -97,17 +108,6 @@ interface BlogPostDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   nextPost: prismic.ContentRelationshipField<"blogPost">;
-
-  /**
-   * Header Image Caption field in *Blog Post*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: blogPost.headerImageCaption
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  headerImageCaption: prismic.RichTextField;
 
   /**
    * Slice Zone field in *Blog Post*
@@ -197,6 +197,93 @@ export type CategoriesDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<
     Simplify<CategoriesDocumentData>,
     "categories",
+    Lang
+  >;
+
+type HomepageDocumentDataSlicesSlice = HeroSlice;
+
+/**
+ * Content for Home Page documents
+ */
+interface HomepageDocumentData {
+  /**
+   * Hero Text field in *Home Page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.heroText
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heroText: prismic.RichTextField;
+
+  /**
+   * Hero CTA field in *Home Page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.heroCTA
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heroCTA: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Home Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<HomepageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Home Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: homepage.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Home Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: homepage.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Home Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Home Page document from Prismic
+ *
+ * - **API ID**: `homepage`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HomepageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<HomepageDocumentData>,
+    "homepage",
     Lang
   >;
 
@@ -392,6 +479,7 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | BlogPostDocument
   | CategoriesDocument
+  | HomepageDocument
   | NavigationDocument
   | PageDocument
   | SettingsDocument;
@@ -890,6 +978,9 @@ declare module "@prismicio/client" {
       BlogPostDocumentDataSlicesSlice,
       CategoriesDocument,
       CategoriesDocumentData,
+      HomepageDocument,
+      HomepageDocumentData,
+      HomepageDocumentDataSlicesSlice,
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataLinksItem,

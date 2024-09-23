@@ -7,20 +7,10 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "heading1",
-						"content": {
-							"text": "Steel",
-							"spans": []
-						},
-						"direction": "ltr"
-					},
-					{
 						"type": "paragraph",
 						"content": {
-							"text": "aaaLaboris adipisicing est duis in laboris in officia Lorem officia enim culpa consequat sint ut proident.",
-							"spans": []
-						},
-						"direction": "ltr"
+							"text": "Est tempor nisi ea velit occaecat in nostrud occaecat laboris ea eiusmod adipisicing qui."
+						}
 					}
 				]
 			},
