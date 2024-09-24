@@ -25,6 +25,12 @@ const syne = Syne({
   variable: '--font-syne'
 })
 
+// export const metadata = {
+//   icons: {
+//     icon: ''
+//   }
+// }
+
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -75,11 +81,11 @@ async function Footer() {
                 <Link className="hover:underline" href="/faqs">FAQs</Link>
               </nav>
             </div>
-            <div className="min-w-[120px] md:min-w-[unset]">
+            <div className="min-w-[7.5rem] md:min-w-[unset]">
               <nav className="space-y-2 flex flex-col">
                 <Link className="hover:underline" href="/privacy-policy">Privacy Policy</Link>
                 <Link className="hover:underline" href="/accessibility">Accessibility</Link>
-                <Link className="hover:underline" href="/faqs">Site Map</Link>
+                {/* <Link className="hover:underline" href="/faqs">Site Map</Link> */}
               </nav>
             </div>
           </div>
@@ -92,14 +98,14 @@ async function Footer() {
         </p>
         <hr className="border-gray-800 mb-10" />
         <div className="flex items-center space-x-4">
-          <a href={asLink(settings.data.instagram) || '#'} className="tranform hover:-translate-y-[4px] transition-transform">
+          <a href={asLink(settings.data.instagram) || '#'} className="tranform hover:-translate-y-[0.25rem] transition-transform">
             <InstagramIcon />
           </a>
-          <a href={asLink(settings.data.tiktok) || '#'} className="tranform hover:-translate-y-[4px] transition-transform">
+          <a href={asLink(settings.data.tiktok) || '#'} className="tranform hover:-translate-y-[0.25rem] transition-transform">
             <TiktokIcon />
           </a>
           {!!asLink(settings.data.twitter) && (
-            <a href={asLink(settings.data.twitter) || '#'} className="tranform hover:-translate-y-[4px] transition-transform">
+            <a href={asLink(settings.data.twitter) || '#'} className="tranform hover:-translate-y-[0.25rem] transition-transform">
               <TwitterIcon />
             </a>
           )}
