@@ -21,6 +21,33 @@
           "constraint": {},
           "thumbnails": []
         }
+      },
+      "instagram": {
+        "type": "Link",
+        "config": {
+          "label": "Instagram",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "tiktok": {
+        "type": "Link",
+        "config": {
+          "label": "Tiktok",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "select": null
+        }
+      },
+      "twitter": {
+        "type": "Link",
+        "config": {
+          "label": "Twitter",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
       }
     }
   }

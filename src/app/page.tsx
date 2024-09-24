@@ -56,6 +56,5 @@ export default async function Page() {
   return <>
     <SliceZone slices={page.data.slices} components={components} />
     <HomePage data={data} />
-
   </>;
 }

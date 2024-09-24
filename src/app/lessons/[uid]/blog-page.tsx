@@ -13,7 +13,7 @@ export const BlogPage = ({ data }: Props) => {
     const { title, category, headerImage, content, icon, headerImageCaption, previousPost, nextPost } = data
     return (
         <div className="max-w-6xl mx-auto px-4 md:px-6">
-            <div className="flex items-center gap-x-1 text-[16px] md:text-[18px] mb-[50px]">
+            <div className="flex items-center gap-x-1 text-[1rem] md:text-[1.125rem] mb-[3.125rem]">
                 <a className="text-black text-[length:inherit] font-medium ">{category.data.name}</a>
                 <p className="text-black text-[length:inherit]">/</p>
                 <p className="font-normal text-[length:inherit]">{title}</p>

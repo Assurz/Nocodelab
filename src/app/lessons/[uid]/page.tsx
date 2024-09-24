@@ -24,8 +24,8 @@ export async function generateMetadata({
     title: page.data.title,
     description: page.data.summary,
     openGraph: {
-      title: page.data.meta_title ?? undefined,
-      images: [{ url: page.data.meta_image.url ?? "" }],
+      title: page.data.title ?? undefined,
+      images: [{ url: page.data.headerImage.url ?? "" }],
     },
   };
 }
@@ -34,7 +34,8 @@ export default async function Page({ params }: { params: Params }) {
   const client = createClient();
   const page = await client
     .getByUID("blogPost", params.uid, {
-      fetchLinks: ['categories.name']
+      fetchLinks: ['categories.name',
+      ]
     })
     .catch(() => notFound());
 

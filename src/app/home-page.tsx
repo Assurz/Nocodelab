@@ -21,10 +21,12 @@ const ModuleSection = ({ categoryName, posts }: Props['data'][number]) => {
                 {posts.map((post) => (
                     <li key={post.id}>
                         <Link className='flex hover:underline items-center gap-x-1' href={`/lessons/${post.uid}`}>
-                            <PrismicImage field={post.data.icon} />
-                            {post.data.title}
-                        </Link>
+                            <PrismicImage field={post.data.icon} className="min-w-[1.5rem] lg:min-w-[2rem]" />
+                            <span className="leading-none">
+                                {post.data.title}
+                            </span>
 
+                        </Link>
                     </li>
                 ))}
             </ul>
@@ -37,13 +39,15 @@ export const HomePage = ({ data }: Props) => {
     return (
         <div className="max-w-6xl px-4 md:px-6 mx-auto w-full">
             <Heading as="h2" size="xl" className="mb-8" >All Lessons</Heading>
-            <div className="grid lg:grid-cols-2 gap-y-[80px] mb-[60px]">
+            <div id="lessons-section" className="grid lg:grid-cols-2 gap-y-[3.75rem] lg:gap-y-[5rem] mb-[3.75rem]">
                 {[...data].map((item) => (
                     <ModuleSection key={item.categoryUid} categoryName={item.categoryName} categoryUid={item.categoryUid} posts={item.posts} />
                 ))}
             </div>
 
-            <div className="py-[60px]">
+            <div className="h-[3.75rem]" />
+
+            {/* <div className="py-[60px]">
                 <div className="">
                     <h3>By the end of this course you should be able to:</h3>
                     <p>A Free Resource Website created to teach web design beginners in Nigeria how to code.</p>
@@ -53,7 +57,7 @@ export const HomePage = ({ data }: Props) => {
 
                 </div>
 
-            </div>
+            </div> */}
         </div>
     )
 }

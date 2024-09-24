@@ -2,7 +2,7 @@ import "./globals.css";
 
 import { Inter, Syne } from "next/font/google";
 import Image from 'next/image'
-import { asText } from "@prismicio/client";
+import { asText, asLink } from "@prismicio/client";
 import { PrismicText, PrismicImage } from "@prismicio/react";
 import { PrismicNextLink, PrismicPreview } from "@prismicio/next";
 
@@ -11,6 +11,7 @@ import footerLayout from '../public/footer-illustration.svg'
 import { createClient, repositoryName } from "@/prismicio";
 import { Heading } from "@/components/Heading";
 import Link from "next/link";
+import { InstagramIcon, TiktokIcon, TwitterIcon } from "./lessons/[uid]/icons";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -44,15 +45,15 @@ async function Footer() {
   const settings = await client.getSingle("settings");
 
   return (
-    <footer className="bg-[#0D0D0D] min-h-[500px] py-8 px-4 md:px-6 text-white relative">
-      <div className="max-w-6xl mx-auto md:gap-x-[60px] border-t border-[#515151] pt-8 flex flex-col md:flex-row justify-between items-start relative z-2">
+    <footer className="bg-[#0D0D0D] min-h-[31.25rem] py-8 px-4 md:px-6 text-white relative">
+      <div className="max-w-6xl mx-auto md:gap-x-[3.75rem] border-t border-[#515151] pt-8 flex flex-col md:flex-row justify-between items-start relative z-2">
         <div className="mb-8 md:mb-0 flex-1">
           <Heading size="sm" as="h3" className="text-white mb-4">Join our mailing list</Heading>
           <div className="flex flex-col md:flex-row gap-x-4 gap-y-2">
             <input
               type="email"
               placeholder="Email Address"
-              className="flex-1 md:w-64 lg:max-w-[400px] bg-transparent border border-gray-700 rounded-md px-4 py-2"
+              className="flex-1 md:w-64 lg:max-w-[25rem] bg-transparent border border-gray-700 rounded-md px-4 py-2"
             />
             <button className="bg-white text-black px-4 py-2 rounded-md font-semibold">
               Subscribe
@@ -67,18 +68,18 @@ async function Footer() {
         <div className="flex-1">
           <PrismicImage field={settings.data.siteLogoWhite} className="h-6 mb-10 md:mb-12" />
           <div className="flex flex-row gap-8">
-            <div className="min-w-[120px] md:min-w-[unset]">
+            <div className="min-w-[7.5rem] md:min-w-[unset]">
               <nav className="space-y-2 flex flex-col">
-                <Link href="/">Home</Link>
-                <Link href="/about">About</Link>
-                <Link href="/faqs">FAQs</Link>
+                <Link className="hover:underline" href="/">Home</Link>
+                <Link className="hover:underline" href="/about">About</Link>
+                <Link className="hover:underline" href="/faqs">FAQs</Link>
               </nav>
             </div>
             <div className="min-w-[120px] md:min-w-[unset]">
               <nav className="space-y-2 flex flex-col">
-                <Link href="/privacy-policy">Privacy Policy</Link>
-                <Link href="/accessibility">Accessibility</Link>
-                <Link href="/faqs">Site Map</Link>
+                <Link className="hover:underline" href="/privacy-policy">Privacy Policy</Link>
+                <Link className="hover:underline" href="/accessibility">Accessibility</Link>
+                <Link className="hover:underline" href="/faqs">Site Map</Link>
               </nav>
             </div>
           </div>
@@ -90,10 +91,19 @@ async function Footer() {
           Made with ❤️ for Nigerians ©️ {new Date().getFullYear()} Nocodeinsight.
         </p>
         <hr className="border-gray-800 mb-10" />
-        <div className="flex space-x-4">
-          <div className="w-10 h-10 bg-white" />
-          <div className="w-10 h-10 bg-white" />
-          <div className="w-10 h-10 bg-white" />
+        <div className="flex items-center space-x-4">
+          <a href={asLink(settings.data.instagram) || '#'} className="tranform hover:-translate-y-[4px] transition-transform">
+            <InstagramIcon />
+          </a>
+          <a href={asLink(settings.data.tiktok) || '#'} className="tranform hover:-translate-y-[4px] transition-transform">
+            <TiktokIcon />
+          </a>
+          {!!asLink(settings.data.twitter) && (
+            <a href={asLink(settings.data.twitter) || '#'} className="tranform hover:-translate-y-[4px] transition-transform">
+              <TwitterIcon />
+            </a>
+          )}
+
         </div>
       </div>
 
@@ -127,7 +137,7 @@ async function Header() {
                 key={asText(item.label)}
                 className="font-semibold tracking-tight text-slate-800"
               >
-                <PrismicNextLink field={item.link}>
+                <PrismicNextLink className="hover:underline" field={item.link}>
                   <PrismicText field={item.label} />
                 </PrismicNextLink>
               </li>
