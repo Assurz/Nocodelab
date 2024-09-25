@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { asText, asLink } from "@prismicio/client";
 import { PrismicText, PrismicImage } from "@prismicio/react";
 import { PrismicNextLink, PrismicPreview } from "@prismicio/next";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 import footerLayout from '../public/footer-illustration.svg'
 
@@ -42,6 +43,7 @@ export default async function RootLayout({
         <PrismicPreview repositoryName={repositoryName} />
         <Footer />
       </body>
+      <GoogleAnalytics gaId="G-W9SKVHS8GY" />
     </html>
   );
 }
