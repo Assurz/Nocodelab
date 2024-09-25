@@ -7,7 +7,7 @@ import { PrismicText, PrismicImage } from "@prismicio/react";
 import { PrismicNextLink, PrismicPreview } from "@prismicio/next";
 import { GoogleAnalytics } from '@next/third-parties/google'
 
-import footerLayout from '../public/footer-illustration.svg'
+import footerLayout from '../../public/footer-illustration.svg'
 
 import { createClient, repositoryName } from "@/prismicio";
 import { Heading } from "@/components/Heading";
@@ -29,6 +29,16 @@ const syne = Syne({
 
 export const metadata: Metadata = {
   title: 'NocodeInsight',
+  openGraph: {
+    type: "website",
+    url: "https://nocodeinsight.com",
+    title: "NocodeInsight",
+    description: "A free learning resource created for newbies interested in crafting website without knowing how to code.",
+    siteName: "NocodeInsight",
+    images: [{
+      url: "https://images.prismic.io/nocodeinsights/ZvSV_bVsGrYSwAyl_opengraph.png?auto=format,compress",
+    }],
+  },
   icons: {
     icon: [
       { rel: 'icon', type: 'image/png', sizes: '192x192', url: '/android-icon-192x192.png' },
