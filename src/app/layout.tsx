@@ -13,6 +13,7 @@ import { createClient, repositoryName } from "@/prismicio";
 import { Heading } from "@/components/Heading";
 import Link from "next/link";
 import { InstagramIcon, TiktokIcon, TwitterIcon } from "./lessons/[uid]/icons";
+import { Metadata } from "next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,11 +27,23 @@ const syne = Syne({
   variable: '--font-syne'
 })
 
-// export const metadata = {
-//   icons: {
-//     icon: ''
-//   }
-// }
+export const metadata: Metadata = {
+  title: 'NocodeInsight',
+  icons: {
+    icon: [
+      { rel: 'icon', type: 'image/png', sizes: '192x192', url: '/android-icon-192x192.png' },
+      { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/favicon-32x32.png' },
+      { rel: 'icon', type: 'image/png', sizes: '96x96', url: '/favicon-96x96.png' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/favicon-16x16.png' },
+    ]
+  },
+  manifest: '/manifest.json',
+  themeColor: '#ffffff',
+  other: {
+    'msapplication-TileColor': '#ffffff',
+    'msapplication-TileImage': '/ms-icon-144x144.png',
+  },
+}
 
 export default async function RootLayout({
   children,
@@ -63,9 +76,9 @@ async function Footer() {
               placeholder="Email Address"
               className="flex-1 md:w-64 lg:max-w-[25rem] bg-transparent border border-gray-700 rounded-md px-4 py-2"
             />
-            <button className="bg-white text-black px-4 py-2 rounded-md font-semibold">
+            <a href="mailto:assuranceuwanguezz@gmail.com?subject=I%20want%20to%20subscribe%20to%20Nocodeinsights" className="bg-white text-black px-4 py-2 rounded-md font-semibold">
               Subscribe
-            </button>
+            </a>
           </div>
           <p className="mt-4 text-sm text-gray-400 max-w-md">
             A Free Resource Website created to teach no-code web
