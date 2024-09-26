@@ -47,8 +47,8 @@ export const HomePage = ({ data }: Props) => {
 
             <div className="h-[3.75rem]" />
 
-            {/* <div className="py-[60px]">
-                <div className="">
+            {/* ]<div className="py-[60px]">
+                <div className=""> 
                     <h3>By the end of this course you should be able to:</h3>
                     <p>A Free Resource Website created to teach web design beginners in Nigeria how to code.</p>
                 </div>
