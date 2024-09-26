@@ -15,25 +15,25 @@ export const SitemapContent = ({ links }: Props) => {
                 {links.map((item) => {
                     if (item.subLinks) {
                         return (
-                            <>
-                                <li>
-                                    <span className="block">{item.name}</span>
-                                    <ul className="pl-6 list-disc space-y-0.5">
-                                        {item.subLinks.map((subItem) => (
-                                            <li>
-                                                <Link className="hover:underline" href={subItem.href}>
-                                                    {subItem.name}
-                                                </Link>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </li>
-                            </>
+
+                            <li key={item.name}>
+                                <span className="block">{item.name}</span>
+                                <ul className="pl-6 list-disc space-y-0.5">
+                                    {item.subLinks.map((subItem) => (
+                                        <li key={subItem.name}>
+                                            <Link className="hover:underline" href={subItem.href}>
+                                                {subItem.name}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </li>
+
                         )
                     }
                     if (item.href) {
                         return (
-                            <li>
+                            <li key={item.name}>
                                 <Link className="hover:underline" href={item.href}>{item.name}</Link>
                             </li>
                         )
