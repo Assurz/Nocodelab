@@ -15,6 +15,7 @@ import Link from "next/link";
 import { InstagramIcon, TiktokIcon, TwitterIcon } from "./lessons/[uid]/icons";
 import { Metadata } from "next";
 import Navigation from "@/components/Navigation";
+import CookieBanner from "./cookie-banner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -142,7 +143,7 @@ async function Footer() {
       <div className="absolute z-1 right-0 bottom-0 hidden md:block">
         <Image src={footerLayout} alt="" />
       </div>
-
+      <CookieBanner />
     </footer>
   )
 }
