@@ -14,6 +14,7 @@ import { Heading } from "@/components/Heading";
 import Link from "next/link";
 import { InstagramIcon, TiktokIcon, TwitterIcon } from "./lessons/[uid]/icons";
 import { Metadata } from "next";
+import Navigation from "@/components/Navigation";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://nocodeinsight.com",
     title: "NocodeInsight",
-    description: "A free learning resource created for newbies interested in crafting website without knowing how to code.",
+    description: "A free learning resource created for newbies interested in crafting websites without knowing how to code.",
     siteName: "NocodeInsight",
     images: [{
       url: "https://images.prismic.io/nocodeinsights/ZvSV_bVsGrYSwAyl_opengraph.png?auto=format,compress",
@@ -95,7 +96,6 @@ async function Footer() {
             design/development for beginners in Nigeria.
           </p>
         </div>
-
         <div className="flex-1">
           <PrismicImage field={settings.data.siteLogoWhite} className="h-6 mb-10 md:mb-12" />
           <div className="flex flex-row gap-8">
@@ -152,29 +152,21 @@ async function Header() {
   const settings = await client.getSingle("settings");
   const navigation = await client.getSingle("navigation");
 
+  const links = navigation.data?.links.map((item) => ({
+    label: asText(item.label),
+    link: asLink(item.link) || '/'
+  }))
+
   return (
-    <header className="bg-white py-8 px-4 md:px-6 ">
+    <header className="bg-white py-4 md:py-8 px-4 md:px-6 ">
       <div className="max-w-6xl mx-auto flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none">
         <PrismicNextLink
           href="/"
           className="text-xl font-semibold tracking-tight"
         >
-          <PrismicImage field={settings.data.siteLogo} className="h-8" />
+          <PrismicImage field={settings.data.siteLogo} className="h-8 md:h-8" />
         </PrismicNextLink>
-        <nav>
-          <ul className="flex flex-wrap gap-6 md:gap-10">
-            {navigation.data?.links.map((item) => (
-              <li
-                key={asText(item.label)}
-                className="font-semibold tracking-tight text-slate-800"
-              >
-                <PrismicNextLink className="hover:underline" field={item.link}>
-                  <PrismicText field={item.label} />
-                </PrismicNextLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <Navigation links={links} siteLogo={settings.data.siteLogo} />
       </div>
     </header>
   );
