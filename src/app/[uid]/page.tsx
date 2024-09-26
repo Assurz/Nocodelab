@@ -42,7 +42,7 @@ export async function generateStaticParams() {
 
   const pages = await client.getAllByType("page");
 
-  return pages.map((page) => {
-    return { uid: page.uid };
+  return pages.filter(page => page.uid !== 'sitemap').map((page) => {
+    return { uid: page. uid };
   });
 }
