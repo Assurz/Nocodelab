@@ -30,7 +30,7 @@ export default async function Page() {
   const client = createClient();
   const page = await client.getByUID("page", "home").catch(() => notFound());
   const blogPosts = await client.getAllByType("blogPost", {
-    fetchLinks: ['categories.name']
+    fetchLinks: ['categories.name', 'categories.order']
   }).catch(() => notFound()) as BlogPosts[]
 
 
@@ -41,6 +41,7 @@ export default async function Page() {
       acc[currCategory.uid] = {
         categoryName: currCategory.data.name,
         categoryUid: currCategory.uid,
+        categoryOrder: currCategory.data.order ?? 1,
         posts: [curr]
       }
     }
@@ -49,7 +50,7 @@ export default async function Page() {
     }
 
     return acc
-  }, {} as Record<string, { categoryName: KeyTextField; categoryUid: string; posts: BlogPosts[] }>)
+  }, {} as Record<string, { categoryName: KeyTextField; categoryUid: string; categoryOrder: number; posts: BlogPosts[] }>)
   const data = Object.values(items)
 
 

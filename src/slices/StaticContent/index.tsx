@@ -17,7 +17,7 @@ const StaticContent = ({ slice }: StaticContentProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="max-w-[800px] px-4 lg:px-0 mx-auto py-[30px] md:py-[60px]">
+      <div className="max-w-[50rem] px-4 lg:px-0 mx-auto py-[1.875rem] md:py-[3.75rem]">
         <PrismicRichText field={slice.primary.content} />
       </div>
     </section>

@@ -10,7 +10,7 @@ type BlogPosts = BlogPostDocument & {
 }
 
 type Props = {
-    data: { categoryName: KeyTextField; categoryUid: string; posts: BlogPosts[] }[]
+    data: { categoryName: KeyTextField; categoryUid: string; categoryOrder: number; posts: BlogPosts[] }[]
 }
 
 const ModuleSection = ({ categoryName, posts }: Props['data'][number]) => {
@@ -36,12 +36,13 @@ const ModuleSection = ({ categoryName, posts }: Props['data'][number]) => {
 
 
 export const HomePage = ({ data }: Props) => {
+    const sortedData = [...data].sort((a, b) => a.categoryOrder - b.categoryOrder)
     return (
         <div className="max-w-6xl px-4 md:px-6 mx-auto w-full">
             <Heading as="h2" size="xl" className="mb-8" >All Lessons</Heading>
             <div id="lessons-section" className="grid lg:grid-cols-2 gap-y-[3.75rem] lg:gap-y-[5rem] mb-[3.75rem]">
-                {[...data].map((item) => (
-                    <ModuleSection key={item.categoryUid} categoryName={item.categoryName} categoryUid={item.categoryUid} posts={item.posts} />
+                {sortedData.map((item) => (
+                    <ModuleSection key={item.categoryUid} categoryName={item.categoryName} categoryUid={item.categoryUid} categoryOrder={item.categoryOrder} posts={item.posts} />
                 ))}
             </div>
 
