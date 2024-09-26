@@ -112,6 +112,7 @@ async function Footer() {
                 <Link className="hover:underline" href="/privacy-policy">Privacy Policy</Link>
                 <Link className="hover:underline" href="/accessibility">Accessibility</Link>
                 <Link className="hover:underline" href="/sitemap">Site Map</Link>
+                <Link className="hover:underline" href="/cookie-policy">Cookie Policy</Link>
               </nav>
             </div>
           </div>
