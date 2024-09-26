@@ -102,6 +102,7 @@ async function Footer() {
           <div className="flex flex-row gap-8">
             <div className="min-w-[7.5rem] md:min-w-[unset]">
               <nav className="space-y-2 flex flex-col">
+                <Link className="hover:underline" href="/#lessons-section">Lessons</Link>
                 <Link className="hover:underline" href="/">Home</Link>
                 <Link className="hover:underline" href="/about">About</Link>
                 <Link className="hover:underline" href="/faqs">FAQs</Link>

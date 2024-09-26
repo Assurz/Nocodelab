@@ -37,7 +37,7 @@ const CookieBanner = () => {
         </div>
         <p className="text-sm text-gray-600 mb-4">
           We use cookies to enhance your browsing experience and analyze our traffic. 
-          By clicking "Accept", you consent to our use of cookies.
+          By clicking &quot;Accept&quot;, you consent to our use of cookies.
         </p>
         <div className="flex space-x-2">
           <button

@@ -133,9 +133,9 @@ const IllustrationMobile = () => {
 export const HomePage = ({ data }: Props) => {
     const sortedData = [...data].sort((a, b) => a.categoryOrder - b.categoryOrder)
     return (
-        <div className="max-w-6xl px-4 md:px-6 mx-auto w-full">
+        <div id="lessons-section"  className="max-w-6xl px-4 md:px-6 mx-auto w-full">
             <Heading as="h2" size="xl" className="mb-8" >All Lessons</Heading>
-            <div id="lessons-section" className="grid lg:grid-cols-2 gap-y-[3.75rem] lg:gap-y-[5rem] mb-[3.75rem]">
+            <div className="grid lg:grid-cols-2 gap-y-[3.75rem] lg:gap-y-[5rem] mb-[3.75rem]">
                 {sortedData.map((item) => (
                     <ModuleSection key={item.categoryUid} categoryName={item.categoryName} categoryUid={item.categoryUid} categoryOrder={item.categoryOrder} posts={item.posts} />
                 ))}
