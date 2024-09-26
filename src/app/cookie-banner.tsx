@@ -29,7 +29,7 @@ const CookieBanner = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 max-w-sm w-full bg-white rounded-lg shadow-lg z-50">
+    <div className="fixed bottom-0 right-0 md:bottom-4 md:right-4 max-w-sm w-full bg-white rounded-lg shadow-lg z-50">
       <div className="p-4">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-bold">Manage cookie consent</h2>
