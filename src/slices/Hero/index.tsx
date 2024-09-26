@@ -22,9 +22,9 @@ const Hero = ({ slice }: HeroProps) => {
 
   return (
     <section className="relative bg-white">
-      <div className="mx-auto w-full max-w-6xl py-[30px] lg:py-[50px] mx-auto px-4 md:px-6 flex flex-col gap-y-[50px] md:flex-row">
+      <div className="mx-auto w-full max-w-6xl py-[1.875rem] lg:py-[3.125rem] mx-auto px-4 md:px-6 flex flex-col gap-y-[3.125rem] md:flex-row">
         <div className="lg:flex-[0.65] flex flex-col">
-          <div className="max-w-xl lg:pt-[30px] [&_.block-img>img]:h-[90px] [&_.block-img>img]:mb-2.5">
+          <div className="max-w-xl lg:pt-[1.875rem] [&_.block-img>img]:h-[5.625rem] [&_.block-img>img]:mb-2.5">
             <PrismicRichText
               field={slice.primary.text}
               components={components}
@@ -39,7 +39,7 @@ const Hero = ({ slice }: HeroProps) => {
             </PrismicNextLink>
           )}
         </div>
-        <div className="relative lg:flex-[0.35] lg:w-[380px]">
+        <div className="relative lg:flex-[0.35] lg:w-[23.75rem]">
           {isFilled.image(backgroundImage) && (
             <PrismicNextImage
               field={backgroundImage}

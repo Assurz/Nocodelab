@@ -42,13 +42,13 @@ const CookieBanner = () => {
         <div className="flex space-x-2">
           <button
             onClick={handleAccept}
-            className="w-full px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
+            className="w-full px-4 py-2 bg-[#560707] text-white rounded-md hover:bg-gray-800"
           >
             Accept
           </button>
           <button
             onClick={handleDeny}
-            className="w-full px-4 py-2 bg-gray-200 text-black rounded hover:bg-gray-300"
+            className="w-full px-4 py-2 bg-[#DDD7D4] text-black rounded-md hover:bg-gray-300"
           >
             Deny
           </button>
