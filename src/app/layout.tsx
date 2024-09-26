@@ -110,7 +110,7 @@ async function Footer() {
               <nav className="space-y-2 flex flex-col">
                 <Link className="hover:underline" href="/privacy-policy">Privacy Policy</Link>
                 <Link className="hover:underline" href="/accessibility">Accessibility</Link>
-                {/* <Link className="hover:underline" href="/faqs">Site Map</Link> */}
+                <Link className="hover:underline" href="/sitemap">Site Map</Link>
               </nav>
             </div>
           </div>
