@@ -110,6 +110,17 @@ interface BlogPostDocumentData {
   nextPost: prismic.ContentRelationshipField<"blogPost">;
 
   /**
+   * Order field in *Blog Post*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogPost.order
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  order: prismic.NumberField;
+
+  /**
    * Slice Zone field in *Blog Post*
    *
    * - **Field Type**: Slice Zone
